@@ -1,0 +1,183 @@
+<html>
+	<head>
+	<!--**These are chartjs charts, not google charts.  Look for the corrisponding documentation -->
+		<link href="stylesheet.css" rel="stylesheet" type="text/css">
+		<title>Ally</title>
+		<script src="jquery-3.2.1.min.js" type="text/javascript"></script>
+		<script src="Chart.Bundle.min.js" type="text/javascript"></script>
+		<script src="chartjs-plugin-datalabels.js"></script>
+		<script type="text/javascript">
+			var pgAddr = "data.php";
+			var auxPgAddr = "aux_data.php";
+			var btmPgAddr = "bottom_table.php";
+			
+			function getParameterByName(name) {
+				name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");		
+				var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+				results = regex.exec(location.search);		
+				return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+			}
+			
+			function refreshTable(){					
+				$('#TableHolder').load($btmPgAddr, function(){
+					setTimeout(refreshTable, 5000);
+				});		
+			}
+						
+			$(document).ready(function(){
+				$splitParam = getParameterByName('spl');	
+				$pgAddr = 'data.php?spl=' + $splitParam;	  
+				$auxPgAddr = 'aux_data.php?spl=' + $splitParam;	  
+				$btmPgAddr = 'bottom_table.php?spl=' + $splitParam;					
+				refreshTable();
+			});
+			
+			
+		</script>
+	</head>
+	<body>	 
+		<div class="pagetop">
+		<div class="topleft">
+			<div class="Header">Agents in Aux</div>
+			<canvas id="myChart" height="200"></canvas>
+	<script>
+		var ctx = document.getElementById("myChart").getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ['Lunch','Break','Training','Meeting','Personal','Admin','Outbound'],
+				datasets: [{					
+					data: [10, 10, 10, 10, 10, 10, 10],
+					backgroundColor: [
+						'rgba(66, 244, 98, 0.9)',
+						'rgba(101, 3, 96, 0.9)',
+						'rgba(198, 192, 194, 0.9)',
+						'rgba(43, 136, 234, 0.9)',
+						'rgba(232, 11, 55, 0.9)',
+						'rgba(66, 244, 98, 0.9)',
+						'rgba(101, 3, 96, 0.9)'
+												
+					],
+					borderColor: [
+						'rgba(57,214,86,1)',
+						'rgba(81, 2, 77, 1)',
+						'rgba(145, 140, 141, 1)',
+						'rgba(37, 118, 203, 1)',
+						'rgba(173, 8, 41, 1)',
+						'rgba(57,214,86,1)',
+						'rgba(81, 2, 77, 1)',
+											
+					],
+					borderWidth: 2
+				}]
+			},
+			options: {					
+				responsive: true,				
+				legend : {
+					display: false									
+				},	
+				scales : {
+					yAxes: [{
+						ticks: {
+							beginAtZero: true
+						}
+					}],
+					xAxes: [{
+						ticks: {
+						 maxRotation: 30,
+						 minRotation: 0,
+						 fontStyle: 'bold',
+						 fontSize: 18
+						}
+					}]
+				},
+				plugins: {
+					datalabels : {
+						color: 'black',
+						font : {
+							size: 30,
+							weight: 'bold'														
+						}
+					}
+				}
+			}
+		});
+
+		</script>
+		</div>
+		  <div class="topright">
+		  <div class="Header">Agent States</div>
+		  	<canvas id="myChart2" height="200" ></canvas>
+	<script>
+		var ctx2 = document.getElementById("myChart2").getContext('2d');
+		var myChart2 = new Chart(ctx2, {
+			type: 'doughnut',
+			data: {
+				labels: ['Available','On ACD','In ACW','Other','In Aux'],
+				datasets: [{					
+					data: [20, 20, 20, 20, 20],
+					backgroundColor: [
+						'rgba(66, 244, 98, 0.9)',
+						'rgba(101, 3, 96, 0.9)',
+						'rgba(198, 192, 194, 0.9)',
+						'rgba(43, 136, 234, 0.9)',
+						'rgba(232, 11, 55, 0.9)'
+												
+					],
+					borderColor: [
+						'rgba(57,214,86,1)',
+						'rgba(81, 2, 77, 1)',
+						'rgba(145, 140, 141, 1)',
+						'rgba(37, 118, 203, 1)',
+						'rgba(173, 8, 41, 1)'
+											
+					],
+					borderWidth: 2
+				}]
+			},
+			options: {				
+				responsive: true,
+				legend : {
+					display: true,
+					position: 'bottom',					
+					labels: {
+						fontSize: 22,
+						fontStyle: 'bold',
+						fontColor: 'black'
+					}
+				},
+				plugins: {
+					datalabels : {
+						color: 'black',
+						font : {
+							size: 30,
+							weight: 'bold'														
+						}
+					}
+				}
+			}
+		});
+		
+		var updateChart = function() {
+			$.getJSON($auxPgAddr, function (result) {
+			//console.log(results);
+				myChart.data.datasets[0].data = result;			
+				myChart.update();			
+			}); 
+			$.getJSON($pgAddr, function (result) {
+			//console.log(results);
+				myChart2.data.datasets[0].data = result;			
+				myChart2.update();			
+			}); 
+		}	
+		
+        // get new data every 3 seconds
+        setInterval(updateChart, 3000);
+		</script></div>
+		</div>		
+		<div class="pagebottom" id="TableHolder" >		 	
+		
+		</div>
+	 </div>
+	
+</html>

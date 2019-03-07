@@ -1,0 +1,33 @@
+ <html>
+<header>
+	<title>Overall</title>
+	<link href="page.css" rel="stylesheet" type="text/css">
+</header>
+<script src="http://CMSVWEBP01/jquery-3.1.0.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	refreshTable();
+	});
+
+function refreshTable(){
+		var splitParam = getParameterByName('grp');
+		var pgAddr = 'overall.php?grp=' + splitParam;
+        $('#page').load(pgAddr, function(){		   
+           setTimeout(refreshTable, 5000);
+        });
+    }
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+</script>
+
+<body>
+ <div id="page">
+ 
+ </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+div.chart {
+	width: 50%;
+	height: 50%;
+	background-color: white;
+	background:url(Ally_r.png);
+	background-size: 100px, 100px;
+	background-repeat: no-repeat;
+	/* use center with a doughnut chart to put image in doughnut */
+	background-position: right top;
+	
+}

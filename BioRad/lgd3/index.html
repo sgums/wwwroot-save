@@ -1,0 +1,32 @@
+<html>
+ <head>
+  <title>Bio-Rad</title>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css">
+  <meta charset="utf-8"/>
+ </head>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+ <script type="text/javascript">
+ $(document).ready(function(){
+	refreshTable();
+	});
+
+ function refreshTable(){
+		var locationParam = getParameterByName('location');
+		var pgAddr = 'table.php?location=' + locationParam;
+		
+        $('#tableHolder').load(pgAddr, function(){		   
+           setTimeout(refreshTable, 4000);
+        });		
+    }
+
+ function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+ </script>
+ <body>
+  <div class="CSSTableGenerator" id="tableHolder"></div>
+ </body>
+</html>

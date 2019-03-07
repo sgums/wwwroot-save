@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title>Bio-Rad</title>
+		<link href="stylesheet.css" rel="stylesheet" type="text/css">
+	</head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		datetime = new Date();
+		
+		$(document).ready(function(){
+			//refreshTable();
+			var today = new Date();
+			
+			var monthNames = ["January", "February", "March","April", "May", "June", "July","August", "September", "October","November", "December"];
+			var day = today.getDate();
+			var year = today.getFullYear();
+			var month = today.getMonth();
+			
+			datetime = "Today: " + monthNames[month] + " " + day + ", " + year;
+			$('#dt').text (datetime);
+		});
+		
+	</script>
+	<body>
+		<div class="topDate"><span id="dt">Today:  loading...</span></div>
+		<div class="midData">
+			<div class="left"><font id="mainHeader">Calls Answered</font><br/><font id="mainValues">256</font></div>
+			<div class="center"><font id="mainHeader">Service Level</font><br/><font id="mainValues">97.1%</font></div>
+			<div class="right"><font id="mainHeader">Calls Waiting</font><br/><font id="mainValues">3</font></div>
+		</div>
+		<div class="bottomTable">
+			<div class="CSSTableGenerator" id="tableHolder">	
+				<table>
+					<tr><td>Site</td><td>Staffed</td><td>Calls Answered</td><td>Calls Waiting</td></tr>
+					<tr><td>Budapest</td><td>15</td><td>34</td><td>4</td></tr>
+					<tr><td>Madrid</td><td>0</td><td >15</td><td id="inThreshold">10</td></tr>
+					<tr><td>Marnes</td><td>30</td><td>120</td><td>0</td></tr>
+					<tr><td>Milan</td><td>3</td><td>12</td><td>1</td></tr>
+					<tr><td>Munich</td><td>8</td><td>21</td><td>0</td></tr>
+					<tr><td>Solna</td><td>15</td><td>21</td><td id="inThreshold">15</td></tr>
+					<tr><td>Watford</td><td>14</td><td>42</td><td>10</td></tr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

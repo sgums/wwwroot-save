@@ -1,0 +1,21 @@
+<chart>
+	<chart_data>
+		<row>
+			<null/>
+			<string>Available</string>
+			<string>On Acd</string>
+			<string>Acw</string>
+			<string>Aux</string>
+			<string>Other</string>
+		</row>
+		<row>
+			<string></string>
+			<number>5</number>
+			<number>14</number>
+			<number>10</number>
+			<number>1</number>
+			<number>5</number>
+		</row>
+	</chart_data>
+	<update url='chart_update.xml' delay='2' mode='data' /> 
+</chart>

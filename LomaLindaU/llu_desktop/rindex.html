@@ -1,0 +1,61 @@
+<html>
+<head>
+	<title>Linda Loma University</title>
+	<link href="stylesheet.css" rel="stylesheet" type="text/css">
+</head>
+<script src="http://CMSVWEBP01/jquery-3.1.0.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var grp = getParameterByName('grp');
+	$('#header').load('header.php?grp=' + grp);
+	refreshTable();
+	setTimeout (redirect, 20000);
+	});
+
+function refreshTable(){
+		var splitParam = getParameterByName('grp');
+		var pgAddr = 'desktop_left.php?grp=' + splitParam;
+		var topAddr = 'desktop_top.php?grp=' + splitParam;
+		var bottomAddr = 'desktop_bottom.php?grp=' + splitParam;
+        $('#leftColumn').load(pgAddr, function(){		   
+           setTimeout(refreshTable, 10000);
+        });
+		$('#tableHolderTop').load(topAddr, function() {} );
+		$('#tableHolderBottom').load(bottomAddr, function() {} );
+    }
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+	
+function redirect () {
+
+	var location = window.location.href;
+	
+	if ( location.includes ("llu_desktop/rindex.html?grp=ambulatory") )
+		window.location = "http://CMSVWEBP01/comparison/rindex.html?grp=ambulatory";
+	else if (location.includes ("llu_desktop/rindex.html?grp=hospital") )
+		window.location = "http://CMSVWEBP01/comparison/rindex.html?grp=hospital";
+	else if (location.includes ("llu_desktop/rindex.html?grp=nonsched") )
+		window.location = "http://CMSVWEBP01/comparison/rindex.html?grp=nonsched";
+}
+</script>
+<body>
+	<div class="page">
+		<div class="left" id="leftColumn"></div>
+		<div class="right">
+			<div class="headerDiv" id="header"></div>
+			<div class="right_top">
+				<div class="CSSTableGenerator" id="tableHolderTop"></div>
+			</div>
+			<div class="right_bottom">
+				<div class="CSSTableGenerator" id="tableHolderBottom"></div>
+			</div>
+		</div>					
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<html>
+<head>
+<link href="table.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script language="javascript">AC_FL_RunContent = 0;</script>
+<script language="javascript"> DetectFlashVer = 0; </script>
+<script src="AC_RunActiveContent.js" language="javascript"></script>
+<script language="JavaScript" type="text/javascript">
+<!--
+var requiredMajorVersion = 10;
+var requiredMinorVersion = 0;
+var requiredRevision = 45;
+-->
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+      refreshTable();
+    });
+
+    function refreshTable(){
+        $('#leftTableHolder').load('left_table.php', function(){
+           setTimeout(refreshTable, 5000);
+        });
+		$('#rightTableHolder').load('right_table.php', function(){ });
+    }
+</script>
+<style>
+
+</style>
+</head>
+<body>
+<div class="page">
+	<div class="left">
+		<div class="CSSTableTitle">
+		<table>
+		<tr>
+			<td width="32%">Agent Name</td>
+			<td width="180px">State</td>
+			<td width="126px">Time</td>
+			<td width="255px">Split</td>
+			<td>level</td>
+		</tr>
+		</table>
+		</div>
+		<div class="CSSLeftTableGenerator">		
+		<!-- <marquee scrollamount="2" direction="up" loop="true" width="100%" height="100%"> -->
+		<div id="leftTableHolder"></div>		
+		<!-- </marquee> -->
+		</div>
+	</div>
+
+	<div class="right">
+		<div class="rightSideTopHalf center">
+	<script language="JavaScript" type="text/javascript">
+<!--
+if (AC_FL_RunContent == 0 || DetectFlashVer == 0) {
+	alert("This page requires AC_RunActiveContent.js.");
+} else {
+	var hasRightVersion = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
+	if(hasRightVersion) { 
+		AC_FL_RunContent(
+			'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,45,2',
+			'width', '100%',
+			'height', '100%',
+			'scale', 'showAll',
+			'bgcolor', '#777788',
+			'wmode', 'opaque',
+			'movie', 'charts',
+			'src', 'charts',
+			'FlashVars', 'library_path=charts_library&xml_source=chart_clean.xml', 
+			'id', 'my_chart',
+			'name', 'my_chart',
+			'menu', 'false',
+			'allowFullScreen', 'false',
+			'allowScriptAccess','sameDomain',
+			'quality', 'high',
+			'align', 'middle',
+			'pluginspage', 'http://www.macromedia.com/go/getflashplayer',
+			'play', 'true',
+			'devicefont', 'false'
+			); 
+	} else { 
+		var alternateContent = 'This content requires the Adobe Flash Player. '
+		+ '<u><a href=http://www.macromedia.com/go/getflash/>Get Flash</a></u>.';
+		document.write(alternateContent); 
+	}
+}
+// -->
+	</script>
+	</div>
+		<div class="rightSideBottomHalf center CSSTableGenerator">
+			<div id="rightTableHolder"></div>			
+		</div>
+	</div>
+</div>
+
+</body>
+
+</html>

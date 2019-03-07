@@ -1,0 +1,140 @@
+<html>
+<head>
+<link href="table.css" rel="stylesheet" type="text/css">
+<script src="jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="Chart.Bundle.min.js" type="text/javascript"></script>
+<script src="chartjs-plugin-datalabels.js"></script>
+<script type="text/javascript">
+    var splitParam = "1";
+	var pgAddr = "data.php";
+	var grpParam = "0";
+    $(document).ready(function(){
+	  $splitParam = getParameterByName('spl');
+	  $grpParam = getParameterByName('grp');
+	  if ( !$splitParam )
+		$splitParam = '0';
+	  $pgAddr = 'data.php?spl=' + $splitParam;	  
+	  refreshTable();
+    });
+
+    function refreshTable(){
+	    	
+		var leftpgAddr = 'left_table.php?spl=' + $splitParam;
+		var rightpgAddr = 'right_table.php?spl=' + $splitParam + "&grp=" + $grpParam;
+        $('#leftTableHolder').load(leftpgAddr, function(){
+           setTimeout(refreshTable, 5000);
+        });
+		$('#rightTableHolder').load(rightpgAddr, function(){ });
+    }
+	
+	function getParameterByName(name) {
+		name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");		
+		var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);		
+		return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+</script>
+<style>
+
+</style>
+</head>
+<body>
+<div class="page">
+	<div class="left">
+		<div class="CSSTableTitle">
+		<table>
+		<tr>
+			<td width="32%">Agent Name</td>
+			<td width="180px">State</td>
+			<td width="126px">Time</td>
+			<td width="255px">Split</td>
+		</tr>
+		</table>
+		</div>
+		<div class="CSSLeftTableGenerator">		
+		<!-- <marquee scrollamount="2" direction="up" loop="true" width="100%" height="100%"> -->
+		<div id="leftTableHolder"></div>		
+		<!-- </marquee> -->
+		</div>
+	</div>
+
+	<div class="right">
+		<div class="rightSideTopHalf">
+	<canvas id="myChart" height="180" ></canvas>
+	<script>
+		var ctx = document.getElementById("myChart").getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'doughnut',
+			data: {
+				labels: ['Available','On ACD','In ACW','Other','In Aux'],
+				datasets: [{					
+					data: [20, 20, 20, 20, 20],
+					backgroundColor: [
+						'rgba(66, 244, 98, 0.9)',
+						'rgba(101, 3, 96, 0.9)',
+						'rgba(198, 192, 194, 0.9)',
+						'rgba(43, 136, 234, 0.9)',
+						'rgba(232, 11, 55, 0.9)'
+												
+					],
+					borderColor: [
+						'rgba(57,214,86,1)',
+						'rgba(81, 2, 77, 1)',
+						'rgba(145, 140, 141, 1)',
+						'rgba(37, 118, 203, 1)',
+						'rgba(173, 8, 41, 1)'
+											
+					],
+					borderWidth: 2
+				}]
+			},
+			options: {
+				title: {
+					display: false,
+					text: 'Agent States'				
+				},
+				responsive: true,
+				legend : {
+					display: true,
+					position: 'top',					
+					labels: {
+						fontSize: 15,
+						fontStyle: 'bold',
+						fontColor: 'black'
+					}
+				},
+				plugins: {
+					datalabels : {
+						color: 'black',
+						font : {
+							size: 30,
+							weight: 'bold'														
+						}
+					}
+				}
+			}
+		});
+		
+		var updateChart = function() {
+		$.getJSON($pgAddr, function (result) {
+			//console.log(results);
+			myChart.data.datasets[0].data = result;			
+			myChart.update();
+			}); 
+		}	
+
+		
+
+        // get new data every 3 seconds
+        setInterval(updateChart, 3000);
+		</script>
+	</div>
+		<div class="rightSideBottomHalf center CSSTableGenerator">
+			<div id="rightTableHolder"></div>			
+		</div>
+	</div>
+</div>
+
+</body>
+
+</html>

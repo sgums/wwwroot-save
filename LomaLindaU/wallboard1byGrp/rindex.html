@@ -1,0 +1,46 @@
+<html>
+<head>
+<link href="table.css" rel="stylesheet" type="text/css">
+<script src="http://CMSVWEBP01/jquery-3.1.0.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+   $(document).ready(function(){
+	refreshTable();
+	setTimeout (redirect, 20000);
+	});
+
+function refreshTable(){
+		var splitParam = getParameterByName('grp');
+		var pgAddr = 'getTable.php?grp=' + splitParam;
+        $('#tableHolder').load(pgAddr, function(){		   
+           setTimeout(refreshTable, 5000);
+        });
+    }
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+	
+function redirect () {
+
+	var location = window.location.href;
+	
+	if ( location.includes ("wallboard1byGrp/rindex.html?grp=operations") )
+		window.location = "http://CMSVWEBP01/comparison/rindex.html?grp=operations";
+	else if ( location.includes ("wallboard1byGrp/rindex.html?grp=ambulatory") )
+		window.location = "http://CMSVWEBP01/llu_desktop/rindex.html?grp=ambulatory";
+	else if ( location.includes ("wallboard1byGrp/rindex.html?grp=hospital") )
+		window.location = "http://CMSVWEBP01/llu_desktop/rindex.html?grp=hospital";
+}
+</script>
+</head>
+<body>
+<!--
+<img src="Comcast_M_COLOR_BLK.JPG" height="200" width="500">
+-->
+<div class="CSSTableGenerator" id="tableHolder"></div>
+
+</body></html>
+            

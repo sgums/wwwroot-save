@@ -1,0 +1,98 @@
+<html>
+	<head>
+		<title>Chart JS test</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+		<script src="Chart.Bundle.min.js" type="text/javascript"></script>
+		<script src="chartjs-plugin-datalabels.js"></script>
+		<script type="text/javascript">
+	var pgAddr = 'data.php';
+    $(document).ready(function(){
+		var splitParam = getParameterByName('spl');
+		$pgAddr = 'data.php?spl=' + splitParam;
+    });    
+	
+	function getParameterByName(name) {
+		name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+		var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+		return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+</script>
+		<link href="stylesheet.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+	<div class="chart">
+		<canvas id="myChart"  ></canvas>
+	<script>
+		var ctx = document.getElementById("myChart").getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'pie',
+			data: {
+				labels: ['Available','On ACD','In Aux','In ACW', 'Other'],
+				datasets: [{					
+					data: [20, 20, 20, 20, 20],
+					backgroundColor: [
+						'rgba(255, 99, 132, 0.5)',
+						'rgba(54, 162, 235, 0.5)',
+						'rgba(255, 206, 86, 0.5)',
+						'rgba(75, 192, 192, 0.5)',		
+						'rgba(153, 102, 255, 0.5)'						
+					],
+					borderColor: [
+						'rgba(255,99,132,1)',
+						'rgba(54, 162, 235, 1)',
+						'rgba(255, 206, 86, 1)',
+						'rgba(75, 192, 192, 1)',	
+						'rgba(153, 102, 255, 1)'						
+					],
+					borderWidth: 2
+				}]
+			},
+			options: {
+				title: {
+					display: false,
+					text: 'Agent States'				
+				},
+				responsive: true,
+				legend : {
+					display: true,
+					position: 'bottom',
+					labels: {
+						fontSize: 20,
+						fontStyle: 'bold'
+					}
+				},
+				plugins: {
+					datalabels : {
+						font : {
+							size: 30,
+							weight: 'bold'
+							}
+					}
+				}
+			}
+		});
+		
+		var updateChart = function() {
+		$.getJSON($pgAddr, function (result) {
+			//console.log(results)
+			myChart.data.datasets[0].data = result;
+			/*
+			myChart.datasets.forEach(function (dataset) {
+				dataset.points.forEach(function (points) {
+					ctx.fillText(points.value, points.x, points.y - 10);
+				});
+			})
+			*/
+			myChart.update();
+			}); 
+		}	
+
+		
+
+        // get new data every 3 seconds
+        setInterval(updateChart, 3000);
+		</script>
+		</div>
+	</body>
+</html>

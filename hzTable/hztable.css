@@ -1,0 +1,139 @@
+.CSSTableGenerator {
+	/* Overall table size, border and shadow */
+	margin:0px;padding:0px;
+	width:98%;
+	height:97%;
+	box-shadow: 10px 10px 5px #DDD0D2;
+	border:1px solid #000000;
+	
+	/* Round the corners */
+	-moz-border-radius-bottomleft:9px;
+	-webkit-border-bottom-left-radius:9px;
+	border-bottom-left-radius:9px;
+	
+	-moz-border-radius-bottomright:9px;
+	-webkit-border-bottom-right-radius:9px;
+	border-bottom-right-radius:9px;
+	
+	-moz-border-radius-topright:9px;
+	-webkit-border-top-right-radius:9px;
+	border-top-right-radius:9px;
+	
+	-moz-border-radius-topleft:9px;
+	-webkit-border-top-left-radius:9px;
+	border-top-left-radius:9px;
+	
+}
+/*Table dimensions within above declaration.  should stay 100% */
+.CSSTableGenerator table{
+    border-collapse: collapse;
+    border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+	/* background image if wanted
+	background:url(Childrens_bg.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-size: 150px 100px;
+	*/
+}
+/* Use to set image absolute 
+#logo img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+	width: 330px;
+	height: 135px;
+	z-index: 1;
+}
+*/
+
+/*Text colors for the different thresholds */
+.MedThreshold {
+	color: blue;
+}
+.MaxThreshold {
+	color: red;
+}
+.NoThreshold {}
+
+/* left hand columns */
+.CSSTableGenerator td:first-child {
+	background-color:#fcfcfc;
+	font-size: 50px;
+	font-family: Arial;
+	font-weight: bold;
+	width:475px;
+	text-align: left;
+}
+
+/* First row Headers */
+.CSSTableGenerator tr:first-child td{
+/* Use the following URL to create gradient http://www.colorzilla.com/gradient-editor/ */
+background: #db062a; /* Old browsers */
+background: -moz-linear-gradient(top,  #db062a 0%, #dd3753 10%, #ddd0d2 36%, #ffffff 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#db062a), color-stop(10%,#dd3753), color-stop(36%,#ddd0d2), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #db062a 0%,#dd3753 10%,#ddd0d2 36%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #db062a 0%,#dd3753 10%,#ddd0d2 36%,#ffffff 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #db062a 0%,#dd3753 10%,#ddd0d2 36%,#ffffff 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #db062a 0%,#dd3753 10%,#ddd0d2 36%,#ffffff 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#db062a', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+
+	background-color:#a8a4a4;
+	border:0px solid #000000;
+	text-align:center;
+	border-width:0px 0px 1px 1px;
+	font-family:Arial;
+	font-size:60;
+	font-weight:italic;
+	color:#191919;
+	height: 15%;
+}
+
+/* Keep the table within the round borders  & borders in the tables*/
+.CSSTableGenerator tr:last-child td:last-child {
+	-moz-border-radius-bottomright:9px;
+	-webkit-border-bottom-right-radius:9px;
+	border-bottom-right-radius:9px;
+	border-width:0px 0px 0px 0px;
+}
+.CSSTableGenerator table tr:first-child td:first-child {
+	-moz-border-radius-topleft:9px;
+	-webkit-border-top-left-radius:9px;
+	border-top-left-radius:9px;	
+}
+.CSSTableGenerator table tr:first-child td:last-child {
+	-moz-border-radius-topright:9px;
+	-webkit-border-top-right-radius:9px;
+	border-top-right-radius:9px;
+	border-width:0px 0px 1px 1px;
+}
+.CSSTableGenerator tr:last-child td:first-child{
+	-moz-border-radius-bottomleft:9px;
+	-webkit-border-bottom-left-radius:9px;
+	border-bottom-left-radius:9px;
+	border-width:0px 1px 1px 0px;
+}
+.CSSTableGenerator tr:last-child td{
+	border-width:0px 1px 0px 0px;
+}
+.CSSTableGenerator tr td:last-child{
+	border-width:0px 0px 1px 0px;
+}
+
+/* Main Table Body */
+.CSSTableGenerator tr:nth-child(odd){ background-color:#EBF5FF; opacity: 0.90; }
+.CSSTableGenerator tr:nth-child(even)    { background-color:#ffffff; opacity:0.90;}
+.CSSTableGenerator td{
+	vertical-align:middle;
+	border:1px solid #000000;
+	border-width:0px 1px 1px 0px;
+	text-align:center;
+	padding:7px;
+	font-size:58px;
+	font-family:Arial;
+	font-weight:bold;
+	width: 22%;
+	color:#000000;
+}

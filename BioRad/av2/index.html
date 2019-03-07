@@ -1,0 +1,72 @@
+<html>
+<head>
+	<link href="stylesheet.css" rel="stylesheet" type="text/css">
+	<meta charset="utf-8"/>
+</head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+	var filter="NA";
+	
+	function handleClick (){
+	
+		var select = $('#Select1');
+		var options = select.find('option');
+			
+		var abrv = $('input[name="searchType"]:checked').val();		
+		if ( abrv == "cust" ) {
+			filter = "cust";
+		}
+		if ( abrv == "fina" ) {
+			filter = "fina";
+		}
+		
+		var visibleItems = options.filter('[value*="' + abrv  + '"]').show();				
+		options.not(visibleItems).hide();
+				
+		if(visibleItems.length > 0)
+		{
+			select.val(visibleItems.eq(0).val());
+		}
+	}
+	
+	function handleSelect () {	
+	
+		var select = document.getElementById("Select1");
+		
+		filter = select.options[select.selectedIndex].value;
+	}
+
+	$(document).ready(function(){
+		$('#dropdown').load('dd.php', function(){});
+		refreshTable();				
+	});
+	
+	function refreshTable(){
+				
+		var pgAddr = 'table.php?filter=' + filter;
+		var leftPageAddr = 'av_left.php?filter=' + filter;
+		
+	
+		$('#tableHolder').load(pgAddr, function(){		   
+			setTimeout(refreshTable, 4000);			
+		});		
+		$('#leftTableHolder').load (leftPageAddr, function(){});
+	}
+	function getParameterByName(name) {
+		name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+		var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+			results = regex.exec(location.search);
+		return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+</script>
+
+<body>
+ <div class="left" id="leftTableHolder"></div>
+ <div class="right">
+	<div id="dropdown"></div>
+	<div class="CSSTableGenerator" id="tableHolder"></div>
+ </div>
+</body>
+
+</html>

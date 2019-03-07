@@ -1,0 +1,428 @@
+div.page {
+	width: 100%;	
+	overflow: auto;
+	padding:2px;
+}
+
+div.headerDiv {
+	text-align: center;
+	height: 5%;
+	font-size: 40;
+}
+
+div.left {
+	width: 60%;	
+	background-color: #f2f2f2;
+	height: 95%;
+	float:left;
+}
+
+div.right {
+	width: 40%;
+	height: 100%;
+	background-color: white;
+	float: right;
+}
+
+div.rightSideTopHalf {
+	float: top;
+	width: 100%;
+	height: 49%;
+	background-color: white;
+	border:1px solid #000000;
+	border-width:1px 1px 1px 1px;
+}
+
+
+div.rightSideBottomHalf {
+	float: bottom;
+	width: 100%;
+	height: 49%;
+	background-color: #F2F2F2;
+	border:1px solid #000000;
+	border-width:1px 1px 1px 1px;
+}
+
+td.header{
+	vertical-align:middle;
+	border:1px solid #000000;
+	border-width:0px 1px 1px 0px;
+	text-align:center;
+	padding:1px;
+	font-size:20px;
+	font-family:Arial;
+	font-weight:bold;
+	background-color:#4775FF; opacity: 0.90; 
+}
+
+tr.data:nth-child(odd){ background-color:#EBF5FF; opacity: 0.90; }
+tr.data:nth-child(even)    { background-color:#ffffff; opacity:0.90;}
+td.data{
+	vertical-align:middle;
+	border:1px solid #000000;
+	border-width:0px 1px 1px 0px;
+	text-align:center;
+	padding:1px;
+	font-size:18px;
+	font-family:Arial;
+	color:#000000;
+}
+td.data:first-child {	
+	text-align: left;
+}
+
+#headers {
+	font-size:50px;	
+	/*	text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);	*/
+    color: rgba(10,60,150, 0.8);
+    text-shadow: 1px 4px 6px #def, 0 0 0 #000, 1px 4px 6px #def;
+}
+
+#values {
+	 font-size:200px;
+	 text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+}
+
+.center {
+	text-align: center;
+}
+
+.CSSTableGenerator { /* Main Div */
+	margin:0px;padding:0px;
+	width:98%;
+	height:90%;
+	box-shadow: 10px 10px 5px #888888;
+	border:1px solid #000000;
+	
+	-moz-border-radius-bottomleft:9px;
+	-webkit-border-bottom-left-radius:9px;
+	border-bottom-left-radius:9px;
+	
+	-moz-border-radius-bottomright:9px;
+	-webkit-border-bottom-right-radius:9px;
+	border-bottom-right-radius:9px;
+	
+	-moz-border-radius-topright:9px;
+	-webkit-border-top-right-radius:9px;
+	border-top-right-radius:9px;
+	
+	-moz-border-radius-topleft:9px;
+	-webkit-border-top-left-radius:9px;
+	border-top-left-radius:9px;
+}
+.CSSTableGenerator table{
+    border-collapse: collapse;
+    border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+	/* Background image if desired
+	background:url(Comcast_M_COLOR_BLK.JPG);
+	background-repeat: no-repeat;
+	background-position: center;
+	*/
+}
+
+
+
+
+.CSSTableGenerator tr:last-child td:last-child { /* Rounded corner bottom right */
+	-moz-border-radius-bottomright:9px;
+	-webkit-border-bottom-right-radius:9px;
+	border-bottom-right-radius:9px;
+}
+.CSSTableGenerator table tr:first-child td:first-child { /* Rounded corner top left */
+	-moz-border-radius-topleft:9px;
+	-webkit-border-top-left-radius:9px;
+	border-top-left-radius:9px;
+}
+.CSSTableGenerator table tr:first-child td:last-child { /* Rounded corner top right */
+	-moz-border-radius-topright:9px;
+	-webkit-border-top-right-radius:9px;
+	border-top-right-radius:9px;
+}
+.CSSTableGenerator tr:last-child td:first-child{ /*Rounded bottom left */
+	-moz-border-radius-bottomleft:9px;
+	-webkit-border-bottom-left-radius:9px;
+	border-bottom-left-radius:9px;
+}
+
+.CSSTableGenerator tr:last-child td{ /* Right border last row */
+	border-width:0px 1px 0px 0px;
+}
+.CSSTableGenerator tr td:last-child{ /* Bottom border last column */
+	border-width:0px 0px 1px 0px;
+}
+.CSSTableGenerator tr:last-child td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+.CSSTableGenerator tr:first-child td:first-child{ /*Border between headers and top left data row */
+	border-width:0px 0px 1px 0px;
+}
+.CSSTableGenerator tr:first-child td:last-child{ /*Border between header and last data column and last header and header to the left. */
+	border-width:0px 0px 1px 1px;
+}
+
+
+.CSSTableGenerator tr:hover td{ /*Hover if ever needed */}
+
+
+/*Alternating background colors */
+.CSSTableGenerator tr:nth-child(odd){ background-color:#F5FAFF; opacity: 0.95; }
+.CSSTableGenerator tr:nth-child(even)    { background-color:#ffffff; opacity:0.95;}
+
+.CSSTableGenerator td:first-child {/*Left Hand Column*/
+	background-color:#fcfcfc;
+	font-size: 22px;
+	font-family: Arial;
+	font-weight: bold;
+	width:70%;
+	text-align: left;
+}
+
+.CSSTableGenerator td{ /* Most data items */
+	vertical-align:middle;
+	border:1px solid #000000;
+	border-width:0px 1px 1px 0px;
+	text-align:center;
+	padding:7px;
+	font-size:28px;
+	font-family:Arial;
+	font-weight:bold;
+	color:#000000;
+}
+
+
+.CSSTableGenerator tr:first-child:hover td{
+	background:-o-linear-gradient(bottom, #a8a4a4 5%, #fcfcfc 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #a8a4a4), color-stop(1, #fcfcfc) );
+	background:-moz-linear-gradient( center top, #a8a4a4 5%, #fcfcfc 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#a8a4a4", endColorstr="#fcfcfc");	background: -o-linear-gradient(top,#a8a4a4,fcfcfc);
+
+	background-color:#a8a4a4;
+}
+
+.CSSLeftTableGenerator { /* Main Div */
+	margin:0px;padding:0px;
+	width:98%;
+	height:auto;
+	box-shadow: 10px 10px 5px #888888;
+	border:1px solid #000000;
+	
+	-moz-border-radius-bottomleft:9px;
+	-webkit-border-bottom-left-radius:9px;
+	border-bottom-left-radius:9px;
+	
+	-moz-border-radius-bottomright:9px;
+	-webkit-border-bottom-right-radius:9px;
+	border-bottom-right-radius:9px;
+	
+	-moz-border-radius-topright:9px;
+	-webkit-border-top-right-radius:9px;
+	border-top-right-radius:9px;
+	
+	-moz-border-radius-topleft:9px;
+	-webkit-border-top-left-radius:9px;
+	border-top-left-radius:9px;
+}
+.CSSLeftTableGenerator table{
+    border-collapse: collapse;
+    border-spacing: 0;
+	width:100%;
+	height:auto;
+	margin:0px;padding:0px;
+	/* Background image if desired
+	background:url(Comcast_M_COLOR_BLK.JPG);
+	background-repeat: no-repeat;
+	background-position: center;
+	*/
+}
+
+.CSSLeftTableGenerator tr:last-child td:last-child { /* Rounded corner bottom right */
+	-moz-border-radius-bottomright:9px;
+	-webkit-border-bottom-right-radius:9px;
+	border-bottom-right-radius:9px;
+}
+.CSSLeftTableGenerator table tr:first-child td:first-child { /* Rounded corner top left */
+	-moz-border-radius-topleft:9px;
+	-webkit-border-top-left-radius:9px;
+	border-top-left-radius:9px;
+}
+.CSSLeftTableGenerator table tr:first-child td:last-child { /* Rounded corner top right */
+	-moz-border-radius-topright:9px;
+	-webkit-border-top-right-radius:9px;
+	border-top-right-radius:9px;
+}
+.CSSLeftTableGenerator tr:last-child td:first-child{ /*Rounded bottom left */
+	-moz-border-radius-bottomleft:9px;
+	-webkit-border-bottom-left-radius:9px;
+	border-bottom-left-radius:9px;
+}
+
+.CSSLeftTableGenerator tr:last-child td{ /* Right border last row */
+	border-width:0px 1px 0px 0px;
+}
+.CSSLeftTableGenerator tr td:last-child{ /* Bottom border last column */
+	border-width:0px 0px 1px 0px;
+}
+.CSSLeftTableGenerator tr:last-child td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+.CSSLeftTableGenerator tr:first-child td:first-child{ /*Border between headers and top left data row */
+	border-width:0px 0px 1px 0px;
+}
+.CSSLeftTableGenerator tr:first-child td:last-child{ /*Border between header and last data column and last header and header to the left. */
+	border-width:1px 0px 1px 1px;
+}
+
+
+.CSSLeftTableGenerator tr:first-child td { /*Text in the first tr*/
+	border:0px solid #000000;	
+	border-width:1px 1px 1px 1px;
+}
+
+
+/*Alternating background colors */
+.CSSLeftTableGenerator tr:nth-child(odd){ background-color:#F5FAFF; opacity: 0.95; }
+.CSSLeftTableGenerator tr:nth-child(even)    { background-color:#ffffff; opacity:0.95;}
+
+.CSSLeftTableGenerator tr td:first-child {/*Left Hand Column*/
+	background-color:#fcfcfc;
+	font-size: 26px;
+	font-family: Arial;
+	font-weight: bold;
+	width:35%;
+	text-align: left;
+}
+
+.CSSLeftTableGenerator  tr td:nth-child(2) {
+	/* width: 200px; */
+}
+
+.CSSLeftTableGenerator  tr td:nth-child(3) {
+	width: 25%;
+}
+
+.CSSLeftTableGenerator td{ /* Most data items */
+	vertical-align:middle;
+	border:1px solid #000000;
+	border-width:0px 1px 1px 0px;
+	text-align:center;
+	padding:7px;
+	font-size:28px;
+	font-family:Arial;
+	font-weight:bold;
+	color:#000000;
+}
+
+
+.CSSTableTitle { /* This is the div itself */
+	margin:0px;padding:0px;
+	width:98%;
+	height:7%;
+	box-shadow: 10px 10px 5px #888888;
+	border:1px solid #000000;
+	
+	-moz-border-radius-bottomleft:9px;
+	-webkit-border-bottom-left-radius:9px;
+	border-bottom-left-radius:9px;
+	
+	-moz-border-radius-bottomright:9px;
+	-webkit-border-bottom-right-radius:9px;
+	border-bottom-right-radius:9px;
+	
+	-moz-border-radius-topright:9px;
+	-webkit-border-top-right-radius:9px;
+	border-top-right-radius:9px;
+	
+	-moz-border-radius-topleft:9px;
+	-webkit-border-top-left-radius:9px;
+	border-top-left-radius:9px;
+}
+
+.CSSTableTitle tr:first-child td { /*Text in the first tr*/
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b7b7b7+0,000000+100&amp;0.65+0,0+63 */
+background: -moz-linear-gradient(top,  rgba(183,183,183,0.65) 0%, rgba(68,68,68,0) 63%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(183,183,183,0.65)), color-stop(63%,rgba(68,68,68,0)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(183,183,183,0.65) 0%,rgba(68,68,68,0) 63%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(183,183,183,0.65) 0%,rgba(68,68,68,0) 63%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(183,183,183,0.65) 0%,rgba(68,68,68,0) 63%,rgba(0,0,0,0) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(183,183,183,0.65) 0%,rgba(68,68,68,0) 63%,rgba(0,0,0,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6b7b7b7', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+
+	background-color:#ffffff;
+	border:0px solid #000000;
+	text-align:center;
+	border-width:0px 0px 1px 1px;
+	font-size:28px;
+	font-family:Arial;
+	font-weight:bold;
+	color:#191919;
+}
+
+.CSSTableTitle table{ /*The table inside the div */
+    border-collapse: collapse;
+    border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+	/* If I wanted a background
+	background:url(Comcast_M_COLOR_BLK.JPG);
+	background-repeat: no-repeat;
+	background-position: center;
+	*/
+}
+
+.CSSTableTitle  tr td:nth-child(1) {
+	width: 35%;
+}
+
+.CSSTableTitle  tr td:nth-child(2) {
+	
+}
+
+.CSSTableTitle  tr td:nth-child(3) {
+	width: 25%;
+}
+
+.inThresholdRed {
+	color: red; 
+/*	
+	-webkit-animation-name: blinker;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;	
+*/
+}
+
+
+.inThresholdDarkRed
+{
+	color: DarkRed;
+}
+
+.inThresholdOrange
+{
+	color: orange;
+}

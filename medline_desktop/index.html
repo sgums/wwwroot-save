@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title>Medline Sample</title>
+	<link href="stylesheet.css" rel="stylesheet" type="text/css">
+</head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	refreshTable();
+	});
+
+function refreshTable(){
+	
+		var splitParam = getParameterByName('grp');
+		var pgAddr = 'desktop_right.php?grp=' + splitParam;
+		var topAddr = 'desktop_middle.php?grp=' + splitParam;
+		var bottomAddr = 'desktop_bottom.php?grp=' + splitParam;
+        $('#rightColumn').load(pgAddr, function(){		   
+           setTimeout(refreshTable, 10000);
+        });
+		$('#tableHolderMiddle').load(topAddr, function() {} );
+		$('#tableHolderBottom').load(bottomAddr, function() {} );
+		
+    }
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+</script>
+<body>
+	<div class="page">
+		<div class="right" id="rightColumn"></div>
+		<div class="left">
+			<div class="left_top"><font id="TopHeader">Wait Time</font>
+				<br/><br/>
+				<font id="TopValue">00:00</font></div>
+			<div class="left_middle">
+				<div class="CSSTableGenerator" id="tableHolderMiddle"></div>
+			</div>
+			<div class="left_bottom">
+				<div class="CSSTableGenerator" id="tableHolderBottom"></div>
+			</div>
+		</div>					
+	</div>
+</body>
+
+</html>

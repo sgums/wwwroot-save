@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --window-size=700,200 --window-position=100,300 --app=http://localhost/aacc_desktop/table.html

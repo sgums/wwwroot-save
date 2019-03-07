@@ -1,0 +1,26 @@
+<html>
+<head>
+<link href="hztable.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"> </script>
+<script type="text/javascript">
+    $(document).ready(function(){
+      refreshTable();
+    });
+
+    function refreshTable(){
+        $('#tableHolder').load('hz_table.php', function(){
+           setTimeout(refreshTable, 2000);
+        });
+    }
+</script>
+
+</head>
+<body>
+<!--  If you want an image over top of table
+<div id="logo">
+	<img src="Childrens_bg.png">
+</div>
+-->
+<div class="CSSTableGenerator" id="tableHolder"></div>
+</body></html>
+            

@@ -1,0 +1,82 @@
+<html>
+ <head>
+  <title>Bio-Rad</title>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css">
+ </head>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+ <script type="text/javascript">
+ $(document).ready(function(){
+	refreshTable();
+	});
+
+ function refreshTable(){
+		var locationParam = getParameterByName('location');
+		var pgAddr = 'table.php?location=' + locationParam;
+		
+        $('#leftColumn').load(pgAddr, function(){		   
+           setTimeout(refreshTable, 4000);
+        });		
+    }
+
+ function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+ </script>
+ <body>
+  <div class="CSSTableGenerator" id="tableHolder">
+   <table>
+	<tr>
+	 <td></td>
+	 <td>Calls<br/>Waiting</td>
+	 <td>Avg Wait Time<br/><span id="smallScript">target: < 20 secs</span></td>	 
+	 <td>Calls Lost<br/><span id="smallScript">excls voicemails</span></td>
+	 <td>Calls<br/>Answered</td>
+	 <td>Avg Answer Time<br/><span id="smallScript">target: < 20 secs</span></td>
+	</tr>
+	<tr>
+	 <td>Site Total</td>
+	 <td>3</td>
+	 <td id="inThreshold">45</td>	 
+	 <td>2</td>
+	 <td>29</td>
+	 <td id="inThreshold">33</td>
+	</tr>
+	<tr>
+	 <td>EN</td>
+	 <td>0</td>
+	 <td>0</td>	 
+	 <td>0</td>
+	 <td>15</td>
+	 <td>19</td>
+	</tr>
+	<tr>
+	 <td>NL</td>
+	 <td>2</td>
+	 <td>19</td>
+	 <td>1</td>
+	 <td>10</td>
+	 <td id="inThreshold">30</td>
+	</tr>
+	<tr>
+	 <td>FR (BE)</td>
+	 <td>1</td>
+	 <td id="inThreshold">90</td>	 
+	 <td>1</td>
+	 <td>4</td>
+	 <td id="inThreshold">44</td>
+	</tr>
+	<tr>
+	 <td>EMEA Total</td>
+	 <td>14</td>
+	 <td id="inThreshold">22</td>	 
+	 <td>15</td>
+	 <td>146</td>
+	 <td id="inThreshold">26</td>
+	</tr>
+   </table>
+  </div>
+ </body>
+</html>

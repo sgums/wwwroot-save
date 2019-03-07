@@ -1,0 +1,49 @@
+<chart>	
+	<chart_data>
+		<row>
+			<null/>
+			<string>test</string>
+			<string>Douglas, Blair</string>
+			<string>Felleman, Cassandr</string>
+			<string>Ferreira, Tiana</string>
+			<string>Hasan, Rashad</string>
+			<string>Owens, Aaron</string>
+			<string>Sparks, Rebecca</string>
+			<string>Wubishet, Elizabet</string>
+		</row>
+		<row>
+			<string>Aux Time</string>
+			<number shadow='data' bevel='data'>10</number>
+			<number shadow='data' bevel='data'>17</number>
+			<number shadow='data' bevel='data'>51</number>
+			<number shadow='data' bevel='data'>11</number>
+			<number shadow='data' bevel='data'>12</number>
+			<number shadow='data' bevel='data'>15</number>
+			<number shadow='data' bevel='data'>26</number>
+			<number shadow='data' bevel='data'>15</number>
+		</row>
+		<row>
+			<string>Talk Time</string>
+			<number shadow='data' bevel='data'>15</number>
+			<number shadow='data' bevel='data'>14</number>
+			<number shadow='data' bevel='data'>9</number>
+			<number shadow='data' bevel='data'>25</number>
+			<number shadow='data' bevel='data'>17</number>
+			<number shadow='data' bevel='data'>13</number>
+			<number shadow='data' bevel='data'>10</number>
+			<number shadow='data' bevel='data'>15</number>
+		</row>
+		<row>
+			<string>Available</string>
+			<number shadow='data' bevel='data'>31</number>
+			<number shadow='data' bevel='data'>29</number>
+			<number shadow='data' bevel='data'>2</number>
+			<number shadow='data' bevel='data'>58</number>
+			<number shadow='data' bevel='data'>0</number>
+			<number shadow='data' bevel='data'>18</number>
+			<number shadow='data' bevel='data'>33</number>
+			<number shadow='data' bevel='data'>29</number>
+		</row>
+	</chart_data>
+	<update url='http://localhost/agent_availability/chart_data.xml' delay='2' mode='data' />
+</chart>

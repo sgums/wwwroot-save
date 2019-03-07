@@ -1,0 +1,93 @@
+<chart>
+	<axis_category alpha='0' margin='false' />
+	<axis_ticks value_ticks='false' category_ticks='true' major_thickness='2' minor_thickness='1' minor_count='3' major_color='000000' minor_color='444444' position='outside' />	
+	<axis_value shadow='low' size='25' max='20' color='000000' alpha='50' steps='5' prefix='' suffix='' decimals='0' separator='' show_min='true' />	
+	<chart_label position='above' size='25' color='000000' alpha='100' /> 
+	<chart_border color='000000' top_thickness='2' bottom_thickness='1' left_thickness='0' right_thickness='0' />
+	<chart_data>
+		<row>
+			<null/>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+			<string></string>
+		</row>
+		<row>
+			<string label=''></string>
+			<number alpha='50' line_color='000000' line_thickness='1' line_alpha='90' label=''>4</number>
+			<number label=''>0</number>
+			<number label=''>2</number>
+			<number label=''>4</number>
+			<number label=''>7</number>
+			<number label='15'>15</number>
+			<number label=''>12</number>
+			<number label=''>7</number>
+			<number label=''>3</number>
+			<number label=''>0</number>
+			<number label=''>0</number>
+			<number label=''>7</number>
+			<number label=''>13</number>
+			<number label=''>12</number>
+			<number label=''>10</number>
+			<number label=''>5</number>
+			<number label=''>4</number>
+			<number label=''>3</number>
+			<number label=''>2</number>
+			<number label=''>0</number>
+			<number label=''>0</number>
+			<number label=''>4</number>
+			<number label=''>8</number>
+			<number label=''>12</number>
+			<number label=''>14</number>
+			<number label=''>2</number>
+			<number label=''>0</number>
+			<number label=''>0</number>			
+			<number label=''>0</number>
+		</row>
+	</chart_data>
+	<chart_grid_h alpha='15' color='000000' thickness='23' />
+	<chart_grid_v alpha='15' color='000000' thickness='1' />
+	<chart_pref point_shape='none' line_thickness='3' />
+	<chart_rect bevel='bg' x='-1200' y='10' width='2800' height='230' positive_color='000000' positive_alpha='0' />
+	<chart_type>area</chart_type>
+
+	<draw>
+		<text layer='foreground' h_align='center' y='30' color='000000' size='45' shadow='high'>Hold #</text>
+	</draw>
+	<filter>
+		<shadow id='low' distance='2' angle='45' color='0' alpha='50' blurX='4' blurY='4' />
+		<shadow id='high' distance='5' angle='45' color='0' alpha='50' blurX='10' blurY='10' />
+		<bevel id='bg' angle='10' blurX='15' blurY='10' distance='10' highlightAlpha='15' highlightColor='ffffff' shadowAlpha='15' type='full' />
+		<shadow id='down' distance='50' angle='80' color='0' alpha='25' blurX='50' blurY='50' inner='true' />
+	</filter>
+	<legend layout='hide' />	
+	<series_color>
+		<color>d82244</color>
+	</series_color>
+
+</chart>

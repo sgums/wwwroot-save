@@ -1,0 +1,48 @@
+
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="table.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    datetime = new Date();
+	
+    $(document).ready(function(){	
+	
+      setTimeout (updateTime, 1000);	
+      setTimeout (redirect, 10000);
+	  
+    });
+
+   	
+	function updateTime() {
+		var currentdate = new Date(); 
+		datetime = "Last Sync: " + currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();		
+		$('#dt').text (datetime);		
+		setTimeout (updateTime, 1000);	
+		
+	}
+	
+	function redirect () {
+	
+		var location = window.location.href;
+		
+		if ( location.includes ("pageA.html") )
+			window.location = "http://www.google.com";
+		else
+			window.location = "pageB.html";
+		
+		
+		
+	}
+</script>
+</head>
+<body>
+	Test Page A <p id="dt">Date Loaded</p><p id="lc">Location</p>
+</body>
+</html

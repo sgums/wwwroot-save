@@ -1,0 +1,158 @@
+<html>
+<head>
+ <title>Syncrhonoss Real-Time</title>
+ <link href="page.css" rel="stylesheet" type="text/css">
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+ <script language="javascript">AC_FL_RunContent = 0;</script>
+ <script language="javascript"> DetectFlashVer = 0; </script>
+ <script src="AC_RunActiveContent.js" language="javascript"></script>
+ <script language="JavaScript" type="text/javascript">
+ <!--
+ var requiredMajorVersion = 10;
+ var requiredMinorVersion = 0;
+ var requiredRevision = 45;
+ -->
+ $(document).ready(function(){
+      refreshTable();
+    });
+
+    function refreshTable(){						
+        $('#tableHolder').load('getTable.php', function(){
+           setTimeout(refreshTable, 3000);
+        });
+    }
+	
+	function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+  </script>
+</head>
+<body>
+<div class="page">
+	<div id="tableHolder" ></div>
+	<div class="bottom">
+		<div class="bottom_left">
+			<script language="JavaScript" type="text/javascript">
+				<!--
+				if (AC_FL_RunContent == 0 || DetectFlashVer == 0) {
+					alert("This page requires AC_RunActiveContent.js.");
+				} else {
+					var hasRightVersion = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
+					var leftFlashVars='library_path=charts_library&xml_source=left_chart_init.php';
+					if(hasRightVersion) { 
+						AC_FL_RunContent(
+							'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,45,2',
+							'width', '100%',
+							'height', '100%',
+							'scale', 'showAll',
+							'bgcolor', '#f2f2f2',
+							'wmode', 'opaque',
+							'movie', 'charts',
+							'src', 'charts',
+							'FlashVars', leftFlashVars, 
+							'id', 'my_chart',
+							'name', 'my_chart',
+							'menu', 'false',
+							'allowFullScreen', 'false',
+							'allowScriptAccess','sameDomain',
+							'quality', 'high',
+							'align', 'middle',
+							'pluginspage', 'http://www.macromedia.com/go/getflashplayer',
+							'play', 'true',
+							'devicefont', 'false'
+						); 
+					} else { 
+						var alternateContent = 'This content requires the Adobe Flash Player. '
+							+ '<u><a href=http://www.macromedia.com/go/getflash/>Get Flash</a></u>.';
+						document.write(alternateContent); 
+					}
+				}
+				// -->
+			</script>
+		</div>
+		<div class="bottom_middle">
+			<script language="JavaScript" type="text/javascript">
+				<!--
+				if (AC_FL_RunContent == 0 || DetectFlashVer == 0) {
+					alert("This page requires AC_RunActiveContent.js.");
+				} else {
+					var hasRightVersion = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
+					var middleFlashVars='library_path=charts_library&xml_source=middle_chart_init.php';
+					if(hasRightVersion) { 
+						AC_FL_RunContent(
+							'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,45,2',
+							'width', '100%',
+							'height', '100%',
+							'scale', 'showAll',
+							'bgcolor', '#f2f2f2',
+							'wmode', 'opaque',
+							'movie', 'charts',
+							'src', 'charts',
+							'FlashVars', middleFlashVars, 
+							'id', 'my_chart',
+							'name', 'my_chart',
+							'menu', 'false',
+							'allowFullScreen', 'false',
+							'allowScriptAccess','sameDomain',
+							'quality', 'high',
+							'align', 'middle',
+							'pluginspage', 'http://www.macromedia.com/go/getflashplayer',
+							'play', 'true',
+							'devicefont', 'false'
+						); 
+					} else { 
+						var alternateContent = 'This content requires the Adobe Flash Player. '
+							+ '<u><a href=http://www.macromedia.com/go/getflash/>Get Flash</a></u>.';
+						document.write(alternateContent); 
+					}
+				}
+				// -->
+			</script>
+		</div>	
+		<div class="bottom_right">
+			<script language="JavaScript" type="text/javascript">
+				<!--
+				if (AC_FL_RunContent == 0 || DetectFlashVer == 0) {
+					alert("This page requires AC_RunActiveContent.js.");
+				} else {
+					var hasRightVersion = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
+					var rightFlashVars='library_path=charts_library&xml_source=right_chart_init.php';
+					if(hasRightVersion) { 
+						AC_FL_RunContent(
+							'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,45,2',
+							'width', '100%',
+							'height', '100%',
+							'scale', 'showAll',
+							'bgcolor', '#f2f2f2',
+							'wmode', 'opaque',
+							'movie', 'charts',
+							'src', 'charts',
+							'FlashVars', rightFlashVars, 
+							'id', 'my_chart',
+							'name', 'my_chart',
+							'menu', 'false',
+							'allowFullScreen', 'false',
+							'allowScriptAccess','sameDomain',
+							'quality', 'high',
+							'align', 'middle',
+							'pluginspage', 'http://www.macromedia.com/go/getflashplayer',
+							'play', 'true',
+							'devicefont', 'false'
+						); 
+					} else { 
+						var alternateContent = 'This content requires the Adobe Flash Player. '
+							+ '<u><a href=http://www.macromedia.com/go/getflash/>Get Flash</a></u>.';
+						document.write(alternateContent); 
+					}
+				}
+				// -->
+			</script>
+		</div>
+	</div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+$server = "localhost\SQLEXPRESS";
+$options = array ("UID"=>"sa", "PWD"=>"v0astr00t", "Database"=>"cms");
+$conn = sqlsrv_connect($server,$options);
+if ( $conn == false) die ("<pre>" . print_r(sqlsrv_errors(), true));
+
+
+
+$sql = "exec llu_wb_totals \"$_GET[grp]\"";
+$params = array();
+$options =  array( "Scrollable" => SQLSRV_CURSOR_KEYSET );
+$query = sqlsrv_query($conn, $sql, $params, $options);
+if ( $query == false )
+{
+	exit ("<pre>" . print_r (sqlsrv_errors(), true));
+}
+		
+while ($row = sqlsrv_fetch_array($query))
+{
+
+
+sqlsrv_free_stmt($query);
+sqlsrv_close($conn);
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	refreshTable();
+	});
+
+function refreshTable(){
+		var splitParam = getParameterByName('spl');
+		var pgAddr = 'overall.php?spl=' + splitParam;
+        $('#page').load(pgAddr, function(){		   
+           setTimeout(refreshTable, 5000);
+        });
+    }
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+</script>

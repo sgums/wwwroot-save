@@ -1,0 +1,42 @@
+<html>
+ <head>
+	<link href="stylesheet.css" rel="stylesheet" type="text/css">
+	<script src="jquery-3.2.1.min.js" type="text/javascript"></script>
+	<title>Ally Team Report</title>
+	<script type="text/javascript">
+	
+	var grpParam = "NA";
+	
+	function refreshTable(){	    	
+		
+		var leftpgAddr = 'left_table.php?grp=' + $grpParam;				
+        $('#TableHolder').load(leftpgAddr, function(){
+           setTimeout(refreshTable, 5000);
+        });		
+    }
+	
+	function getParameterByName(name) {
+		name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");		
+		var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);		
+		return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}    
+			
+    $(document).ready(function(){	  		
+	  $grpParam = getParameterByName('grp');	
+	  if (!$grpParam) {
+	   document.write ("<p>No Group provided");
+	  }		
+	  else {
+		refreshTable();
+		}
+    });
+
+    
+	</script>
+  </head>
+ <body>
+  <div id="TableHolder" />
+ </body>
+
+</html>
